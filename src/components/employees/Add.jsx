@@ -7,7 +7,7 @@ const Add = () => {
   const [formData, setFormData] = useState({});
   // Fetch data for departments to put in select depts
   const [departments, setDepartments] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getDepartments = async () => {
@@ -42,7 +42,7 @@ const Add = () => {
     // pass data to server side to add new employee to database
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/employee/add",
+        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee/add",
         formDataObj,
         {
           headers: {

@@ -1,33 +1,3 @@
-// To access all user information
-
-// import React, { createContext, useContext, useState } from "react";
-
-// const userContext = createContext();
-// const authContext = ({ children }) => {
-//   const [user, setUser] = useState(null);
-
-//   const login = (user) => {
-//     setUser(user);
-//   };
-
-//   const logout = () => {
-//     setUser(null);
-//     localStorage.removeItem("token");
-//   };
-
-//   return (
-//     <div>
-//       <authContext.Provider value={{ user, login, logout }}>
-//         {children}
-//       </authContext.Provider>
-//     </div>
-//   );
-// };
-
-// export const useAuth = () => useContext(userContext);
-
-// export default authContext;
-
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -44,7 +14,7 @@ const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("token");
         if (token) {
           const response = await axios.get(
-            "http://localhost:5000/api/auth/verify",
+            "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/auth/verify",
             {
               headers: {
                 Authorization: `Bearer ${token}`,

@@ -14,11 +14,14 @@ const List = () => {
     setEmpLoading(true);
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/employee", {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await axios.get(
+          "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         if (response.data.success) {
           let sno = 1;
           const data = await response.data.employees.map((emp) => ({
@@ -30,7 +33,7 @@ const List = () => {
             profileImage: (
               <img
                 className="rounded-full"
-                src={`http://localhost:5000/${emp.userId.profileImage}`}
+                src={`https://ems-server-angelique-tuyisabes-projects.vercel.app/${emp.userId.profileImage}`}
               />
             ),
             action: <EmployeeButtons _id={emp._id} />,

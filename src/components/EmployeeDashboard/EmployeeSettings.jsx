@@ -28,7 +28,7 @@ const EmployeeSettings = () => {
     } else {
       try {
         const response = await axios.put(
-          "http://localhost:5000/api/settings/change-password",
+          "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/settings/change-password",
           settings,
           {
             headers: {

@@ -15,7 +15,7 @@ const LeaveList = () => {
     try {
       console.log("here");
       const response = await axios.get(
-        `http://localhost:5000/api/leave/${id}/${userRole}`,
+        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/${id}/${userRole}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

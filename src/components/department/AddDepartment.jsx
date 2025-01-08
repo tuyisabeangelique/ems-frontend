@@ -23,7 +23,7 @@ const AddDepartment = () => {
     // pass data to server side to add new dept to database
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/department/add",
+        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/department/add",
         department,
         {
           headers: {

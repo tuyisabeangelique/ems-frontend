@@ -17,11 +17,14 @@ const DepartmentList = () => {
     setDepLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:5000/api/department", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/department",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (response.data.success) {
         let sno = 1;
         const data = await response.data.departments.map((dep) => ({

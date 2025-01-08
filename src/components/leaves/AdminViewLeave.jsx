@@ -13,7 +13,7 @@ const AdminViewLeave = () => {
       try {
         console.log("hi");
         const response = await axios.get(
-          `http://localhost:5000/api/leave/one-leave/${id}`,
+          `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/one-leave/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -36,7 +36,7 @@ const AdminViewLeave = () => {
     try {
       console.log("hi");
       const response = await axios.put(
-        `http://localhost:5000/api/leave/${id}`,
+        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/${id}`,
         { status },
         {
           headers: {
@@ -64,7 +64,7 @@ const AdminViewLeave = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-[80%] h-[80%] mx-auto">
               <img
-                src={`http://localhost:5000/${leave.employeeId.userId.profileImage}`}
+                src={`https://ems-server-angelique-tuyisabes-projects.vercel.app/${leave.employeeId.userId.profileImage}`}
                 alt="User Image"
                 className="rounded-full border "
               />

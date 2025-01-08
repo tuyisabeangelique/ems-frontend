@@ -17,7 +17,7 @@ function Login() {
     // Call our API, pass data to it, and verify user credentials. After a successful login, we want to store the user information so we can access it from all components
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/auth/login",
         { email, password }
       );
       if (response.data.success) {

@@ -20,7 +20,7 @@ const AddLeave = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/leave/add",
+        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/add",
         leave,
         {
           headers: {
