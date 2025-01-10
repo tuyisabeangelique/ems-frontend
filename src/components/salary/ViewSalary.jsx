@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/authContext";
-import config from "../../config.js";
+import config from "../../../config.js";
 
 const ViewSalary = () => {
   const [salaries, setSalaries] = useState([]);

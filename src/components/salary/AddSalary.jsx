@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { fetchDepartments, fetchEmployees } from "../../utils/EmployeeHelper";
 import axios from "axios";
-import config from "../../config.js";
+import config from "../../../config.js";
+
 import { useNavigate } from "react-router-dom";
 
 const AddSalary = () => {

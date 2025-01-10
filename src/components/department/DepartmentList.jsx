@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { columns, DepartmentButtons } from "../../utils/DepartmentHelper";
-import config from "../../config.js";
+import config from "../../../config.js";
 import axios from "axios";
 
 const DepartmentList = () => {
@@ -18,14 +18,11 @@ const DepartmentList = () => {
     setDepLoading(true);
 
     try {
-      const response = await axios.get(
-        `${config.backendUrl}/department`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await axios.get(`${config.backendUrl}/department`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       if (response.data.success) {
         let sno = 1;
         const data = await response.data.departments.map((dep) => ({

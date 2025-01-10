@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import config from "../../config.js";
+import config from "../../../config.js";
 import SummaryCard from "./SummaryCard";
 import {
   FaBuilding,

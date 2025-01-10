@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext.jsx";
-import config from "../../config.js";
+import config from "../../../config.js";
 import axios from "axios";
 
 const EmployeeSettings = () => {

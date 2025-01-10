@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { columns, LeaveButtons } from "../../utils/LeaveHelper";
-import config from "../../config.js";
+import config from "../../../config.js";
+
 import DataTable from "react-data-table-component";
 
 const AdminLeaves = () => {
