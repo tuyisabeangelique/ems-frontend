@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import config from "../../config.js";
 import { useNavigate } from "react-router-dom";
 
 const AddDepartment = () => {
@@ -23,7 +24,7 @@ const AddDepartment = () => {
     // pass data to server side to add new dept to database
     try {
       const response = await axios.post(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/department/add",
+        `${config.backendUrl}/department/add`,
         department,
         {
           headers: {

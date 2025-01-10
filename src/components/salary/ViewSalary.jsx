@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/authContext";
+import config from "../../config.js";
 
 const ViewSalary = () => {
   const [salaries, setSalaries] = useState([]);
@@ -15,7 +16,7 @@ const ViewSalary = () => {
     try {
       console.log("hi 0");
       const response = await axios.get(
-        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/salary/${id}/${role}`,
+        `${config.backendUrl}/salary/${id}/${role}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

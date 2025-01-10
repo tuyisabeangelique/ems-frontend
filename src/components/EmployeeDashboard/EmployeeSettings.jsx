@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext.jsx";
+import config from "../../config.js";
 import axios from "axios";
 
 const EmployeeSettings = () => {
@@ -28,7 +29,7 @@ const EmployeeSettings = () => {
     } else {
       try {
         const response = await axios.put(
-          "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/settings/change-password",
+          `${config.backendUrl}/settings/change-password`,
           settings,
           {
             headers: {

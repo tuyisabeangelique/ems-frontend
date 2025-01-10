@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import config from "../../config.js";
 import { useNavigate, useParams } from "react-router-dom";
 
 const AdminViewLeave = () => {
@@ -13,7 +14,7 @@ const AdminViewLeave = () => {
       try {
         console.log("hi");
         const response = await axios.get(
-          `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/one-leave/${id}`,
+          `${config.backendUrl}/leave/one-leave/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -36,7 +37,7 @@ const AdminViewLeave = () => {
     try {
       console.log("hi");
       const response = await axios.put(
-        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/${id}`,
+        `${config.backendUrl}/leave/${id}`,
         { status },
         {
           headers: {
@@ -64,7 +65,7 @@ const AdminViewLeave = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-[80%] h-[80%] mx-auto">
               <img
-                src={`https://ems-server-angelique-tuyisabes-projects.vercel.app/${leave.employeeId.userId.profileImage}`}
+                src={`${config.urlNoAPI}/${leave.employeeId.userId.profileImage}`}
                 alt="User Image"
                 className="rounded-full border "
               />

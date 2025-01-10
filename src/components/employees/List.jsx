@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
+import config from "../../config.js";
 import { columns, EmployeeButtons } from "../../utils/EmployeeHelper";
 
 const List = () => {
@@ -14,14 +15,11 @@ const List = () => {
     setEmpLoading(true);
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get(
-          "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const response = await axios.get(`${config.backendUrl}/employee`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         if (response.data.success) {
           let sno = 1;
           const data = await response.data.employees.map((emp) => ({
@@ -33,7 +31,7 @@ const List = () => {
             profileImage: (
               <img
                 className="rounded-full"
-                src={`https://ems-server-angelique-tuyisabes-projects.vercel.app/${emp.userId.profileImage}`}
+                src={`${config.urlNoAPI}/${emp.userId.profileImage}`}
               />
             ),
             action: <EmployeeButtons _id={emp._id} />,

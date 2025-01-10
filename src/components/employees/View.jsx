@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import config from "../../config.js";
 import { useParams } from "react-router-dom";
 
 const View = () => {
@@ -11,7 +12,7 @@ const View = () => {
     const fetchEmployee = async () => {
       try {
         const response = await axios.get(
-          `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee/${id}`,
+          `${config.backendUrl}/employee/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +46,7 @@ const View = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-[80%] h-[80%] mx-auto">
               <img
-                src={`https://ems-server-angelique-tuyisabes-projects.vercel.app/${employee.userId.profileImage}`}
+                src={`${config.urlNoAPI}/${employee.userId.profileImage}`}
                 alt="User Image"
                 className="rounded-full border "
               />

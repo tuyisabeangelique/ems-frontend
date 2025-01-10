@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
+import config from "../../config.js";
 import { useNavigate } from "react-router-dom";
 
 const AddLeave = () => {
@@ -20,7 +21,7 @@ const AddLeave = () => {
 
     try {
       const response = await axios.post(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/add",
+        `${config.backendUrl}/leave/add`,
         leave,
         {
           headers: {

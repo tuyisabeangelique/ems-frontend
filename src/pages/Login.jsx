@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import config from "../../config.js";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,10 +17,10 @@ function Login() {
 
     // Call our API, pass data to it, and verify user credentials. After a successful login, we want to store the user information so we can access it from all components
     try {
-      const response = await axios.post(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/auth/login",
-        { email, password }
-      );
+      const response = await axios.post(`${config.backendUrl}/auth/login`, {
+        email,
+        password,
+      });
       if (response.data.success) {
         // Store token in localStorage
         login(response.data.user);

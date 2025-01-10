@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import config from "../../config.js";
 
 const UserContext = createContext();
 
@@ -13,14 +14,11 @@ const AuthProvider = ({ children }) => {
       try {
         const token = localStorage.getItem("token");
         if (token) {
-          const response = await axios.get(
-            "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/auth/verify",
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
+          const response = await axios.get(`${config.backendUrl}/auth/verify`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           if (response.data.success) {
             // User is authenticated
             setUser(response.data.user);

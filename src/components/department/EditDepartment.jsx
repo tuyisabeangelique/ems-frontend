@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import config from "../../config.js";
 import { useNavigate } from "react-router-dom";
 
 const EditDepartment = () => {
@@ -16,7 +17,7 @@ const EditDepartment = () => {
 
       try {
         const response = await axios.get(
-          `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/department/${id}`,
+          `${config.backendUrl}/department/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -47,7 +48,7 @@ const EditDepartment = () => {
     // Return to Department page
     try {
       const response = await axios.put(
-        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/department/${id}`,
+        `${config.backendUrl}/department/${id}`,
         department,
         {
           headers: {

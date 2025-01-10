@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchDepartments } from "../../utils/EmployeeHelper";
 import axios from "axios";
+import config from "../../config.js";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Edit = () => {
@@ -30,7 +31,7 @@ const Edit = () => {
     const fetchEmployee = async () => {
       try {
         const response = await axios.get(
-          `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee/${id}`,
+          `${config.backendUrl}/employee/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -79,7 +80,7 @@ const Edit = () => {
 
     try {
       const response = await axios.put(
-        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee/${id}`,
+        `${config.backendUrl}/employee/${id}`,
         employee,
         {
           headers: {

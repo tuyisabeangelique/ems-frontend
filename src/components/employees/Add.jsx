@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchDepartments } from "../../utils/EmployeeHelper";
 import axios from "axios";
+import config from "../../config.js";
 import { useNavigate } from "react-router-dom";
 
 const Add = () => {
@@ -42,7 +43,7 @@ const Add = () => {
     // pass data to server side to add new employee to database
     try {
       const response = await axios.post(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/employee/add",
+        `${config.backendUrl}/employee/add`,
         formDataObj,
         {
           headers: {

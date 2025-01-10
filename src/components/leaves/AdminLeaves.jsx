@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { columns, LeaveButtons } from "../../utils/LeaveHelper";
+import config from "../../config.js";
 import DataTable from "react-data-table-component";
 
 const AdminLeaves = () => {
@@ -8,14 +9,11 @@ const AdminLeaves = () => {
   const [filteredLeaves, setFilteredLeaves] = useState([]);
   const fetchLeaves = async () => {
     try {
-      const response = await axios.get(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave",
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await axios.get(`${config.backendUrl}/leave`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       if (response.data.success) {
         let sno = 1;
         const data = await response.data.leaves.map((leave) => ({

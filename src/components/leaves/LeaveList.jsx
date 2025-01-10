@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import config from "../../config.js";
 import { useAuth } from "../../context/authContext";
 
 const LeaveList = () => {
@@ -15,7 +16,7 @@ const LeaveList = () => {
     try {
       console.log("here");
       const response = await axios.get(
-        `https://ems-server-angelique-tuyisabes-projects.vercel.app/api/leave/${id}/${userRole}`,
+        `${config.backendUrl}/leave/${id}/${userRole}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

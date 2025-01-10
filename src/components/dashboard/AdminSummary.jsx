@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import config from "../../config.js";
 import SummaryCard from "./SummaryCard";
 import {
   FaBuilding,
@@ -17,7 +18,7 @@ const AdminSummary = () => {
   const fetchSummary = async () => {
     try {
       const response = await axios.get(
-        "https://ems-server-angelique-tuyisabes-projects.vercel.app/api/dashboard/summary",
+        `${config.backendUrl}/dashboard/summary`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
